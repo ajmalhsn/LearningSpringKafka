@@ -35,3 +35,18 @@ spring:
 app:
   kafka:
     topic: order-events
+
+management:
+  otlp:
+    metrics:
+      export:
+        url: http://localhost:4318/v1/metrics
+        step: 30s
+    tracing:
+      endpoint: http://localhost:4318/v1/traces
+  metrics:
+    tags:
+      application: springkafka
+  tracing:
+    sampling:
+      probability: 1.0   # sample everything in dev; lower (e.g. 0.1) in production    

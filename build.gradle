@@ -30,6 +30,12 @@ dependencies {
 	implementation 'com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.21.0'
 	implementation 'com.google.cloud.hosted.kafka:managed-kafka-auth-login-handler:1.0.5'
 	implementation 'com.mysql:mysql-connector-j'
+	// Actuator + Micrometer OTLP metrics registry (push, not scrape)
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'io.micrometer:micrometer-registry-otlp'
+	// Tracing via Micrometer → OpenTelemetry bridge
+	implementation 'io.micrometer:micrometer-tracing-bridge-otel'
+	implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
 	compileOnly 'org.projectlombok:lombok:1.18.36'
     annotationProcessor 'org.projectlombok:lombok:1.18.36'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

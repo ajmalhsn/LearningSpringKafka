@@ -1,0 +1,28 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+processors:
+  batch:
+  resourcedetection:
+    detectors: [gcp]
+    timeout: 10s
+
+exporters:
+  googlemanagedprometheus:   # metrics → Managed Service for Prometheus
+  googlecloud:               # traces → Cloud Trace
+
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [batch, resourcedetection]
+      exporters: [googlemanagedprometheus]
+    traces:
+      receivers: [otlp]
+      processors: [batch, resourcedetection]
+      exporters: [googlecloud]

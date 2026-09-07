@@ -25,6 +25,7 @@ dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-databind'
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 	implementation 'com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.21.0'
+	implementation 'com.google.cloud.hosted.kafka:managed-kafka-auth-login-handler:1.0.5'
 	implementation 'com.mysql:mysql-connector-j'
 	compileOnly 'org.projectlombok:lombok:1.18.36'
     annotationProcessor 'org.projectlombok:lombok:1.18.36'

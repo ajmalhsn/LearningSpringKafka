@@ -22,8 +22,18 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       auto-offset-reset: earliest
       properties:
-        spring.json.trusted.packages: com.spring.kafka.LearningSpringKafka.dto
-        spring.json.value.default.type: com.spring.kafka.LearningSpringKafka.dto.OrderEvent
+        'spring.json.trusted.packages': com.spring.kafka.LearningSpringKafka.dto
+        'spring.json.value.default.type': com.spring.kafka.LearningSpringKafka.dto.OrderEvent
+        'security.protocol': SASL_SSL
+        sasl:
+          mechanism: OAUTHBEARER
+          jaas:
+            config: org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required
+          login:
+            callback:
+              handler:
+                class: com.google.cloud.hosted.kafka.auth.GcpLoginCallbackHandler
+
 
 app:
   kafka:

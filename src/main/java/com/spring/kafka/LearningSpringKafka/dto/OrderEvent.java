@@ -16,5 +16,5 @@ public class OrderEvent {
     private int quantity;
     private BigDecimal amount;
     private String status;      // CREATED, PROCESSING, COMPLETED
-    private Instant timestamp;
+    private Instant timestamp
 }

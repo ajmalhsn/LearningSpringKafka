@@ -19,7 +19,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws")
-                .setAllowedOrigins("http://localhost:5173") // Allow requests from the React frontend
+                .setAllowedOrigins("https://reactkafka-764300521353.europe-west1.run.app")
                 .withSockJS();
     }
 }

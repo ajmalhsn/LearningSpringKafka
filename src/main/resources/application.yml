@@ -23,10 +23,14 @@ spring:
       group-id: springkafka-group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.spring.kafka.LearningSpringKafka.dto"
+        spring.json.value.default.type: com.spring.kafka.LearningSpringKafka.dto.OrderEvent
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      
 
 app:
   kafka:

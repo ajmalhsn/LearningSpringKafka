@@ -12,7 +12,7 @@ spring:
     show-sql: true
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: bootstrap.kafka.us-central1.managedkafka.project-abbbaa96-84e3-4202-a12.cloud.goog:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://project-abbbaa96-84e3-4202-a12:us-central1:free-trial-first-project:3306/orders_db
-    username: root
-    password: 
+    url: jdbc:mysql:///orders_db?cloudSqlInstance=project-abbbaa96-84e3-4202-a12:us-central1:free-trial-first-project&socketFactory=com.google.cloud.sql.mysql.SocketFactory
+    username: kafkauser
+    password: root
   jpa:
     hibernate:
       ddl-auto: update

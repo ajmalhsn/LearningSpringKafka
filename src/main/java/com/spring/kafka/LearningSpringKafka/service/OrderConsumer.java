@@ -17,7 +17,7 @@ public class OrderConsumer {
     private final OrderRepository repository;
     private final SimpMessagingTemplate messagingTemplate;
 
-    @KafkaListener(topics = "${app.kafka.topic}", groupId = "order-service-group")
+    @KafkaListener(topics = "${app.kafka.topic}", groupId = "springkafka-group")
     public void consume(OrderEvent event) {
         OrderEntity entity = new OrderEntity();
         entity.setOrderId(event.getOrderId());

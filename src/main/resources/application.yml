@@ -14,21 +14,19 @@ spring:
 
   kafka:
     bootstrap-servers: bootstrap.kafka.us-central1.managedkafka.project-abbbaa96-84e3-4202-a12.cloud.goog:9092
+    properties:
+      security.protocol: SASL_SSL
+      sasl.mechanism: OAUTHBEARER
+      sasl.jaas.config: org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
+      sasl.login.callback.handler.class: com.google.cloud.hosted.kafka.auth.GcpLoginCallbackHandler
+    consumer:
+      group-id: springkafka-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-    consumer:
-      group-id: order-service-group
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      auto-offset-reset: earliest
-      properties:
-        spring.json.trusted.packages: com.spring.kafka.LearningSpringKafka.dto
-        spring.json.value.default.type: com.spring.kafka.LearningSpringKafka.dto.OrderEvent
-        security.protocol: SASL_SSL
-        sasl.mechanism: OAUTHBEARER
-        sasl.jaas.config: org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required
-        sasl.login.callback.handler.class: com.google.cloud.hosted.kafka.auth.GcpLoginCallbackHandler
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 app:
   kafka:

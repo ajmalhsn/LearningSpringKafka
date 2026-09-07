@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/orders_db
+    url: jdbc:mysql://project-abbbaa96-84e3-4202-a12:us-central1:free-trial-first-project:3306/orders_db
     username: root
     password: 
   jpa:

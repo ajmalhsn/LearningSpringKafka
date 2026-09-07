@@ -11,7 +11,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/orders")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:5173") // Allow requests from the React frontend
+@CrossOrigin(origins = "https://reactkafka-764300521353.europe-west1.run.app/") // Allow requests from the React frontend
 public class OrderController {
 
     private final OrderProducer producer;
